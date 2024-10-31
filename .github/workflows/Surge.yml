@@ -101,7 +101,7 @@ jobs:
       run: |
         # 同步 BlockAd 到 BlockAds
         if [ -f "Tools-repo/Ruleset/Surge/Block/Ads.list" ] ; then
-          # cat Tools-repo/Ruleset/Surge/Block/BlockAdthNylHx.list >> Tools-repo/Ruleset/Surge/Block/Ads.list
+          cat Tools-repo/Ruleset/Surge/Block/Ads_RuCu6.list >> Tools-repo/Ruleset/Surge/Block/Ads.list
           cat Tools-repo/Ruleset/Surge/Block/Ads_category-ads-all.list >> Tools-repo/Ruleset/Surge/Block/Ads.list
           cat Tools-repo/Ruleset/Surge/Block/Ads_BanAD.list >> Tools-repo/Ruleset/Surge/Block/Ads.list
           cat Tools-repo/Ruleset/Surge/Block/Ads_BanProgramAD.list >> Tools-repo/Ruleset/Surge/Block/Ads.list
@@ -111,7 +111,6 @@ jobs:
           cat Tools-repo/Ruleset/Surge/Block/Ads_Advertising.list >> Tools-repo/Ruleset/Surge/Block/Ads.list
           cat Tools-repo/Ruleset/Surge/Block/Ads_Malicious.list >> Tools-repo/Ruleset/Surge/Block/Ads.list
           cat Tools-repo/Ruleset/Surge/Block/Ads_Tracking.list >> Tools-repo/Ruleset/Surge/Block/Ads.list
-          # cat Tools-repo/Ruleset/Surge/Block/Ads_Tracking.list >> Tools-repo/Ruleset/Surge/Block/Ads.list
         else
           echo "Ads.list not found."
         fi
