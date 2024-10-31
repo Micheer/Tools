@@ -8,7 +8,7 @@ mkdir -p Tools/Ruleset/mihomo/{geoip,geosite}
 #--- mihomo ---#
 # geosite
 # ADS
-curl -L -o Tools-repo/Ruleset/mihomo/geosite/Ads.mrs "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/category-ads-all.mrs"
+curl -L -o Tools-repo/Ruleset/mihomo/geosite/Ads_all.mrs "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/category-ads-all.mrs"
 # 本地/局域网
 curl -L -o Tools-repo/Ruleset/mihomo/geosite/Local.mrs "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/private.mrs"
 # 国内直连
