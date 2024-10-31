@@ -1,4 +1,4 @@
-name: mihomo Fork
+name: mihomo
 
 on:
   workflow_dispatch:
