@@ -1,4 +1,4 @@
-name: Fork & Edit
+name: Surge
 
 on:
   workflow_dispatch:
