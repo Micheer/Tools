@@ -15,7 +15,7 @@ jobs:
     - name: Checkout target repository
       uses: actions/checkout@v4.1.0
       with:
-        repository: Abcd789JK/Tools
+        repository: thNylHx/Tools
         path: Tools-repo
 
     - name: 复刻
