@@ -101,7 +101,7 @@ jobs:
       run: |
         # 同步 BlockAd 到 BlockAds
         if [ -f "Tools-repo/Ruleset/Surge/Block/BlockAds.list" ] ; then
-          cat Tools-repo/Ruleset/Surge/Block/BlockAdthNylHx.list >> Tools-repo/Ruleset/Surge/Block/BlockAds.list
+          # cat Tools-repo/Ruleset/Surge/Block/BlockAdthNylHx.list >> Tools-repo/Ruleset/Surge/Block/BlockAds.list
           cat Tools-repo/Ruleset/Surge/Block/Block_Ads >> Tools-repo/Ruleset/Surge/Block/BlockAds.list
           cat Tools-repo/Ruleset/Surge/Block/Block_BanAD.list >> Tools-repo/Ruleset/Surge/Block/BlockAds.list
           cat Tools-repo/Ruleset/Surge/Block/Block_BanProgramAD.list >> Tools-repo/Ruleset/Surge/Block/BlockAds.list
