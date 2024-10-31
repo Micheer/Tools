@@ -20,7 +20,7 @@ jobs:
 
     - name: 复刻
       run: |
-        curl https://raw.githubusercontent.com/thNylHx/Tools/main/Script/Fork/Srueg.sh | sh
+        curl https://raw.githubusercontent.com/thNylHx/Tools/main/Script/Fork/Surge.sh | sh
 
 ###### Surge ###### 
       # 适配规则
