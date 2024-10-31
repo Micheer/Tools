@@ -121,7 +121,7 @@ jobs:
          echo "" >> Tools-repo/Ruleset/Surge/Media/Facebook.list
          cat Tools-repo/Ruleset/Surge/Media/Instagram.list >> Tools-repo/Ruleset/Surge/Media/Facebook.list
          echo "" >> Tools-repo/Ruleset/Surge/Media/Facebook.list
-         cat Tools-repo/Ruleset/Surge/Media/FacebookIP.list >> Tools-repo/Ruleset/Surge/Media/Facebook.list
+         cat Tools-repo/Ruleset/Surge/Media/Facebook_ip.list >> Tools-repo/Ruleset/Surge/Media/Facebook.list
         else
           echo "Facebook.list not found."
         fi
@@ -129,7 +129,7 @@ jobs:
         # 同步 NetflixIP 到 Netflix
         if [ -f "Tools-repo/Ruleset/Surge/Media/Netflix.list" ] ; then
          echo "" >> Tools-repo/Ruleset/Surge/Media/Netflix.list
-         cat Tools-repo/Ruleset/Surge/Media/NetflixIP.list >> Tools-repo/Ruleset/Surge/Media/Netflix.list
+         cat Tools-repo/Ruleset/Surge/Media/Netflix_ip.list >> Tools-repo/Ruleset/Surge/Media/Netflix.list
         else
           echo "Netflix.list not found."
         fi
@@ -137,7 +137,7 @@ jobs:
         # 同步 TwitterIP 到 Twitter
         if [ -f "Tools-repo/Ruleset/Surge/Media/Twitter.list" ] ; then
          echo "" >> Tools-repo/Ruleset/Surge/Media/Twitter.list
-         cat Tools-repo/Ruleset/Surge/Media/TwitterIP.list >> Tools-repo/Ruleset/Surge/Media/Twitter.list
+         cat Tools-repo/Ruleset/Surge/Media/Twitter_ip.list >> Tools-repo/Ruleset/Surge/Media/Twitter.list
         else
           echo "Twitter.list not found."
         fi
@@ -153,7 +153,7 @@ jobs:
         # 同步 GoogleIP 到 Google
         if [ -f "Tools-repo/Ruleset/Surge/Other/Google.list" ] ; then
          echo "" >> Tools-repo/Ruleset/Surge/Other/Google.list
-         cat Tools-repo/Ruleset/Surge/Other/GoogleIP.list >> Tools-repo/Ruleset/Surge/Other/Google.list
+         cat Tools-repo/Ruleset/Surge/Other/Google_ip.list >> Tools-repo/Ruleset/Surge/Other/Google.list
         else
           echo "Google.list not found."
         fi
