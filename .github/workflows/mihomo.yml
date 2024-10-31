@@ -1,4 +1,4 @@
-name: Fork & Edit
+name: mihomo Fork
 
 on:
   workflow_dispatch:
