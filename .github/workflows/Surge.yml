@@ -3,15 +3,15 @@ name: Surge
 on:
   workflow_dispatch:
   schedule:
-    - cron: "15 */6 * * *"
-  
+    - cron: "15 */6 * * *"  # 每6小时运行一次
+
 jobs:
   Fork-FLITER-list:
     runs-on: ubuntu-latest
     env:
-      TZ: 'Asia/Shanghai'
-    
-    steps: 
+      TZ: 'Asia/Shanghai'  # 设置时区为上海
+
+    steps:
     - name: Checkout target repository
       uses: actions/checkout@v4.1.0
       with:
@@ -22,8 +22,7 @@ jobs:
       run: |
         curl https://raw.githubusercontent.com/thNylHx/Tools/main/Script/Fork/Surge.sh | sh
 
-###### Surge ###### 
-      # 适配规则
+    ###### Surge ###### 
     - name: Edit Ruleset
       run: |
         # 指定多个文件夹
@@ -96,7 +95,7 @@ jobs:
           fi
         done
 
-      # 追加规则
+    # 追加规则
     - name: Copy custom rules
       run: |
         # 合并 ConnersHua 到 Ads_ConnersHua
@@ -170,24 +169,24 @@ jobs:
           echo "Google.list not found."
         fi
 
-      # 去重排序
-      - name: Remove duplicates, lines, and delete URL-REGEX lines
-        run: |
-          cd Tools-repo/Ruleset/Surge/Block
-          shopt -s nullglob  # 避免没有匹配的文件时保留原始通配符
-          for file in Ads_ConnersHua.list Ads_limbopro.list Ads_ml.list; do
-            if [ -f "$file" ]; then
-              sorted_file="sorted_${file}"
-              # 使用 grep 去掉包含 # 的行和包含 URL-REGEX, 的行
-              grep -v '^\s*#' "$file" | grep -v '^\s*$' | grep -v 'URL-REGEX,' | sort | uniq > "$sorted_file"
-              mv "$sorted_file" "$file"
-            else
-              echo "$file not found."
-            fi
-          done
-        shell: bash
+    # 去重排序
+    - name: Remove duplicates, lines, and delete URL-REGEX lines
+      run: |
+        cd Tools-repo/Ruleset/Surge/Block
+        shopt -s nullglob  # 避免没有匹配的文件时保留原始通配符
+        for file in Ads_ConnersHua.list Ads_limbopro.list Ads_ml.list; do
+          if [ -f "$file" ]; then
+            sorted_file="sorted_${file}"
+            # 使用 grep 去掉包含 # 的行和包含 URL-REGEX, 的行
+            grep -v '^\s*#' "$file" | grep -v '^\s*$' | grep -v 'URL-REGEX,' | sort | uniq > "$sorted_file"
+            mv "$sorted_file" "$file"
+          else
+            echo "$file not found."
+          fi
+        done
+      shell: bash
 
-###### Commit
+    ###### Commit ######
     - name: Add and Commit
       run: |
         cd Tools-repo
