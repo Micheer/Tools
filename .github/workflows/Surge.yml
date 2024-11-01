@@ -175,7 +175,7 @@ jobs:
       run: |
         cd Tools-repo/Ruleset/Surge/Block
         shopt -s nullglob  # 避免没有匹配的文件时保留原始通配符
-        for file in Ads_ConnersHua.list,Ads_limbopro.list,Ads_ml.list; do
+        for file in Ads_ConnersHua.list Ads_limbopro.list Ads_ml.list; do
           if [ -f "$file" ]; then
             sorted_file="sorted_${file}"
             # 使用 grep 去掉包含 # 的行
