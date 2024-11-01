@@ -22,7 +22,6 @@ DOMAIN-SUFFIX,u3.ucweb.com
 DOMAIN-SUFFIX,pos.baidu.com
 # 百度贴吧
 IP-CIDR,180.76.76.200/32,no-resolve
-,no-resolve
 
 # ======= C ======= #
 # ChatGPT
