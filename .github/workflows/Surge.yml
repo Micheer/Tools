@@ -99,20 +99,33 @@ jobs:
       # 追加规则
     - name: Copy custom rules
       run: |
-        # 同步 BlockAd 到 BlockAds
-        if [ -f "Tools-repo/Ruleset/Surge/Block/Ads.list" ] ; then
-          cat Tools-repo/Ruleset/Surge/Block/Ads_RuCu6.list >> Tools-repo/Ruleset/Surge/Block/Ads.list
-          cat Tools-repo/Ruleset/Surge/Block/Ads_category-ads-all.list >> Tools-repo/Ruleset/Surge/Block/Ads.list
-          cat Tools-repo/Ruleset/Surge/Block/Ads_BanAD.list >> Tools-repo/Ruleset/Surge/Block/Ads.list
-          cat Tools-repo/Ruleset/Surge/Block/Ads_BanProgramAD.list >> Tools-repo/Ruleset/Surge/Block/Ads.list
-          cat Tools-repo/Ruleset/Surge/Block/Ads_Adblock4limbo_surge.list >> Tools-repo/Ruleset/Surge/Block/Ads.list
-          cat Tools-repo/Ruleset/Surge/Block/Ads_easyprivacy_surge.list >> Tools-repo/Ruleset/Surge/Block/Ads.list
-          cat Tools-repo/Ruleset/Surge/Block/Ads_easylist_surge.list >> Tools-repo/Ruleset/Surge/Block/Ads.list
-          cat Tools-repo/Ruleset/Surge/Block/Ads_Advertising.list >> Tools-repo/Ruleset/Surge/Block/Ads.list
-          cat Tools-repo/Ruleset/Surge/Block/Ads_Malicious.list >> Tools-repo/Ruleset/Surge/Block/Ads.list
-          cat Tools-repo/Ruleset/Surge/Block/Ads_Tracking.list >> Tools-repo/Ruleset/Surge/Block/Ads.list
+        # 合并 ConnersHua 到 Ads_ConnersHua
+        if [ -f "Tools-repo/Ruleset/Surge/Block/Ads_ConnersHua.list" ] ; then
+          cat Tools-repo/Ruleset/Surge/Block/Ads_Advertising.list >> Tools-repo/Ruleset/Surge/Block/Ads_ConnersHua.list
+          cat Tools-repo/Ruleset/Surge/Block/Ads_Malicious.list >> Tools-repo/Ruleset/Surge/Block/Ads_ConnersHua.list
+          cat Tools-repo/Ruleset/Surge/Block/Ads_Tracking.list >> Tools-repo/Ruleset/Surge/Block/Ads_ConnersHua.list
         else
-          echo "Ads.list not found."
+          echo "Ads_ConnersHua.list not found."
+        fi
+
+        # 合并 limbopro 到 Ads_limbopro
+        if [ -f "Tools-repo/Ruleset/Surge/Block/Ads_limbopro.list" ] ; then
+          cat Tools-repo/Ruleset/Surge/Block/Ads_Adblock4limbo_surge.list >> Tools-repo/Ruleset/Surge/Block/Ads_limbopro.list
+          cat Tools-repo/Ruleset/Surge/Block/Ads_easyprivacy_surge.list >> Tools-repo/Ruleset/Surge/Block/Ads_limbopro.list
+          cat Tools-repo/Ruleset/Surge/Block/Ads_easylist_surge.list >> Tools-repo/Ruleset/Surge/Block/Ads_limbopro.list
+        else
+          echo "Ads_limbopro.list not found."
+        fi
+
+        # 合并 Other 到 Ads_ml
+        if [ -f "Tools-repo/Ruleset/Surge/Block/Ads_ml.list" ] ; then
+          cat Tools-repo/Ruleset/Surge/Block/Ads_th.list >> Tools-repo/Ruleset/Surge/Block/Ads_ml.list
+          cat Tools-repo/Ruleset/Surge/Block/Ads_RuCu6.list >> Tools-repo/Ruleset/Surge/Block/Ads_ml.list
+          cat Tools-repo/Ruleset/Surge/Block/Ads_category-ads-all.list >> Tools-repo/Ruleset/Surge/Block/Ads_ml.list
+          cat Tools-repo/Ruleset/Surge/Block/Ads_BanAD.list >> Tools-repo/Ruleset/Surge/Block/Ads_ml.list
+          cat Tools-repo/Ruleset/Surge/Block/Ads_BanProgramAD.list >> Tools-repo/Ruleset/Surge/Block/Ads_ml.list
+        else
+          echo "Ads_ml.list not found."
         fi
 
         # 合并 FacebookIP & Instagram 到 Facebook
@@ -125,7 +138,7 @@ jobs:
           echo "Facebook.list not found."
         fi
 
-        # 同步 NetflixIP 到 Netflix
+        # 合并 NetflixIP 到 Netflix
         if [ -f "Tools-repo/Ruleset/Surge/Media/Netflix.list" ] ; then
          echo "" >> Tools-repo/Ruleset/Surge/Media/Netflix.list
          cat Tools-repo/Ruleset/Surge/Media/Netflix_ip.list >> Tools-repo/Ruleset/Surge/Media/Netflix.list
@@ -133,7 +146,7 @@ jobs:
           echo "Netflix.list not found."
         fi
 
-        # 同步 TwitterIP 到 Twitter
+        # 合并 TwitterIP 到 Twitter
         if [ -f "Tools-repo/Ruleset/Surge/Media/Twitter.list" ] ; then
          echo "" >> Tools-repo/Ruleset/Surge/Media/Twitter.list
          cat Tools-repo/Ruleset/Surge/Media/Twitter_ip.list >> Tools-repo/Ruleset/Surge/Media/Twitter.list
@@ -141,7 +154,7 @@ jobs:
           echo "Twitter.list not found."
         fi
 
-        # 同步 YouTubeMusic 到 YouTube
+        # 合并 YouTubeMusic 到 YouTube
         if [ -f "Tools-repo/Ruleset/Surge/Media/YouTube.list" ] ; then
          echo "" >> Tools-repo/Ruleset/Surge/Media/YouTube.list
          cat Tools-repo/Ruleset/Surge/Media/YouTubeMusic.list >> Tools-repo/Ruleset/Surge/Media/YouTube.list
@@ -149,7 +162,7 @@ jobs:
           echo "YouTube.list not found."
         fi
 
-        # 同步 GoogleIP 到 Google
+        # 合并 GoogleIP 到 Google
         if [ -f "Tools-repo/Ruleset/Surge/Other/Google.list" ] ; then
          echo "" >> Tools-repo/Ruleset/Surge/Other/Google.list
          cat Tools-repo/Ruleset/Surge/Other/Google_ip.list >> Tools-repo/Ruleset/Surge/Other/Google.list
@@ -162,7 +175,7 @@ jobs:
       run: |
         cd Tools-repo/Ruleset/Surge/Block
         shopt -s nullglob  # 避免没有匹配的文件时保留原始通配符
-        for file in Ads.list; do
+        for file in Ads_ConnersHua.list,Ads_limbopro.list,Ads_ml.list; do
           if [ -f "$file" ]; then
             sorted_file="sorted_${file}"
             # 使用 grep 去掉包含 # 的行
