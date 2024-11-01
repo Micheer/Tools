@@ -171,21 +171,21 @@ jobs:
         fi
 
       # 去重排序
-    # - name: Remove duplicates and lines 
-    #   run: |
-    #     cd Tools-repo/Ruleset/Surge/Block
-    #     shopt -s nullglob  # 避免没有匹配的文件时保留原始通配符
-    #     for file in Ads_ConnersHua.list Ads_limbopro.list Ads_ml.list; do
-    #       if [ -f "$file" ]; then
-    #         sorted_file="sorted_${file}"
-    #         # 使用 grep 去掉包含 # 的行
-    #         grep -v '^\s*#' "$file" | grep -v '^\s*$' | sort | uniq > "$sorted_file"
-    #         mv "$sorted_file" "$file"
-    #       else
-    #         echo "$file not found."
-    #       fi
-    #     done
-    #   shell: bash
+      - name: Remove duplicates, lines, and delete URL-REGEX lines
+        run: |
+          cd Tools-repo/Ruleset/Surge/Block
+          shopt -s nullglob  # 避免没有匹配的文件时保留原始通配符
+          for file in Ads_ConnersHua.list Ads_limbopro.list Ads_ml.list; do
+            if [ -f "$file" ]; then
+              sorted_file="sorted_${file}"
+              # 使用 grep 去掉包含 # 的行和包含 URL-REGEX, 的行
+              grep -v '^\s*#' "$file" | grep -v '^\s*$' | grep -v 'URL-REGEX,' | sort | uniq > "$sorted_file"
+              mv "$sorted_file" "$file"
+            else
+              echo "$file not found."
+            fi
+          done
+        shell: bash
 
 ###### Commit
     - name: Add and Commit
