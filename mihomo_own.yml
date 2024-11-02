@@ -15,12 +15,6 @@ proxy-providers:
     url: "此处填写机场订阅连接"
     override:
       additional-prefix: "[此处填写机场名称]"
-  # 机场2
-  Airport_02:
-    <<: *pr
-    url: "此处填写机场订阅连接"
-    override:
-      additional-prefix: "[此处填写机场名称]"
 
 # 全局配置
 # 开启 IPv6 总开关，可选：true/false
@@ -274,9 +268,3 @@ rule-providers:
   Lan:
     <<: *classical
     url: "https://raw.githubusercontent.com/thNylHx/Tools/main/Ruleset/Other/Local.list"
-
-
-
-docker run -it -d --name dpanel --restart=always -p 8807:8080 -e APP_NAME=dpanel -v /var/run/docker.sock:/var/run/docker.sock -v dpanel:/dpanel -e INSTALL_USERNAME=admin -e INSTALL_PASSWORD=admin dpanel/dpanel:lite
-
-docker run -it -d --name dpanel --restart=always -p 8807:8080 -e APP_NAME=dpanel -v /var/run/docker.sock:/var/run/docker.sock -v dpanel:/dpanel -e INSTALL_USERNAME=admin -e INSTALL_PASSWORD=admin dpanel/dpanel:lite
