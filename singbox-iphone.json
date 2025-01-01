@@ -235,35 +235,112 @@
       "tag": "🐸 手动切换",
       "type": "selector",
       "outbounds": [
-        "Proxy"
+        "剩余流量：241.36 GB",
+        "距离下次重置剩余：30 天",
+        "套餐到期：2025-01-31",
+        "🏘️ 官网：hongxingdl.club",
+        "🔗 节点异常请刷新订阅",
+        "🙂刷新失败请到官网重新导入(需重登账号)",
+        "🇭🇰 香港1",
+        "🇭🇰 香港2",
+        "🇭🇰 香港3",
+        "🇭🇰 香港4",
+        "🇭🇰 香港5-原生",
+        "🇹🇼 🇨🇳 台湾1",
+        "🇹🇼 🇨🇳 台湾2",
+        "🇹🇼 🇨🇳 台湾3",
+        "🇸🇬 新加坡1",
+        "🇸🇬 新加坡2",
+        "🇸🇬 新加坡3",
+        "🇸🇬 新加坡4",
+        "🇯🇵 日本1",
+        "🇯🇵 日本2",
+        "🇯🇵 日本3-原生",
+        "🇯🇵 日本4-原生",
+        "🇺🇸 美国1-原生",
+        "🇺🇸 美国2-原生",
+        "🇺🇸 美国3-原生",
+        "🇲🇴 澳门",
+        "🇰🇷 韩国",
+        "🇮🇳 印度-孟买",
+        "🇩🇪 德国",
+        "🇫🇷 法国",
+        "🇬🇧 英国",
+        "🇳🇱 荷兰",
+        "🇮🇹 意大利",
+        "🇮🇳 印度-西部",
+        "🇨🇱 智利",
+        "🇧🇷 巴西",
+        "🇪🇸 西班牙",
+        "🇨🇭 瑞士",
+        "🇸🇪 瑞典",
+        "🇲🇽 墨西哥",
+        "🇨🇦 加拿大",
+        "🇦🇺 澳大利亚",
+        "🇦🇪 迪拜",
+        "🇿🇦 南非",
+        "🇸🇦 沙特阿拉伯",
+        "🇨🇴 哥伦比亚",
+        "🇮🇱 以色列",
+        "🇻🇳 越南",
+        "🇹🇭 泰国",
+        "🇲🇾 马来西亚",
+        "🇷🇺 莫斯科",
+        "🇵🇭 菲律宾",
+        "🇳🇬 尼日利亚",
+        "🇮🇳 🇮🇩 印度尼西亚",
+        "🇹🇷 土耳其",
+        "🇭🇰 香港 IPV6",
+        "🇹🇼 🇨🇳 台湾 IPV6",
+        "🇸🇬 新加坡 IPV6",
+        "🇯🇵 日本 IPV6",
+        "🇺🇸 美国 IPV6"
       ]
     },
     {
       "tag": "🇭🇰 香港节点",
       "type": "selector",
       "outbounds": [
-        "Proxy"
+        "🇭🇰 香港1",
+        "🇭🇰 香港2",
+        "🇭🇰 香港3",
+        "🇭🇰 香港4",
+        "🇭🇰 香港5-原生",
+        "🇭🇰 香港 IPV6"
       ]
     },
     {
       "tag": "🇯🇵 日本节点",
       "type": "selector",
       "outbounds": [
-        "Proxy"
+        "🇯🇵 日本1",
+        "🇯🇵 日本2",
+        "🇯🇵 日本3-原生",
+        "🇯🇵 日本4-原生",
+        "🇳🇬 尼日利亚",
+        "🇯🇵 日本 IPV6"
       ]
     },
     {
       "tag": "🇺🇲 美国节点",
       "type": "selector",
       "outbounds": [
-        "Proxy"
+        "🇺🇸 美国1-原生",
+        "🇺🇸 美国2-原生",
+        "🇺🇸 美国3-原生",
+        "🇺🇸 美国 IPV6"
       ]
     },
     {
       "tag": "🔯 香港自动",
       "type": "urltest",
       "outbounds": [
-        "Proxy"
+        "🇭🇰 香港1",
+        "🇭🇰 香港2",
+        "🇭🇰 香港3",
+        "🇭🇰 香港4",
+        "🇭🇰 香港5-原生",
+        "🇭🇰 香港 IPV6"
       ],
       "url": "http://www.gstatic.com/generate_204",
       "interval": "10m",
@@ -273,7 +350,64 @@
       "tag": "♻️ 自动选择",
       "type": "urltest",
       "outbounds": [
-        "Proxy"
+        "套餐到期：2025-01-31",
+        "🏘️ 官网：hongxingdl.club",
+        "🔗 节点异常请刷新订阅",
+        "🙂刷新失败请到官网重新导入(需重登账号)",
+        "🇭🇰 香港1",
+        "🇭🇰 香港2",
+        "🇭🇰 香港3",
+        "🇭🇰 香港4",
+        "🇭🇰 香港5-原生",
+        "🇹🇼 🇨🇳 台湾1",
+        "🇹🇼 🇨🇳 台湾2",
+        "🇹🇼 🇨🇳 台湾3",
+        "🇸🇬 新加坡1",
+        "🇸🇬 新加坡2",
+        "🇸🇬 新加坡3",
+        "🇸🇬 新加坡4",
+        "🇯🇵 日本1",
+        "🇯🇵 日本2",
+        "🇯🇵 日本3-原生",
+        "🇯🇵 日本4-原生",
+        "🇺🇸 美国1-原生",
+        "🇺🇸 美国2-原生",
+        "🇺🇸 美国3-原生",
+        "🇲🇴 澳门",
+        "🇰🇷 韩国",
+        "🇮🇳 印度-孟买",
+        "🇩🇪 德国",
+        "🇫🇷 法国",
+        "🇬🇧 英国",
+        "🇳🇱 荷兰",
+        "🇮🇹 意大利",
+        "🇮🇳 印度-西部",
+        "🇨🇱 智利",
+        "🇧🇷 巴西",
+        "🇪🇸 西班牙",
+        "🇨🇭 瑞士",
+        "🇸🇪 瑞典",
+        "🇲🇽 墨西哥",
+        "🇨🇦 加拿大",
+        "🇦🇺 澳大利亚",
+        "🇦🇪 迪拜",
+        "🇿🇦 南非",
+        "🇸🇦 沙特阿拉伯",
+        "🇨🇴 哥伦比亚",
+        "🇮🇱 以色列",
+        "🇻🇳 越南",
+        "🇹🇭 泰国",
+        "🇲🇾 马来西亚",
+        "🇷🇺 莫斯科",
+        "🇵🇭 菲律宾",
+        "🇳🇬 尼日利亚",
+        "🇮🇳 🇮🇩 印度尼西亚",
+        "🇹🇷 土耳其",
+        "🇭🇰 香港 IPV6",
+        "🇹🇼 🇨🇳 台湾 IPV6",
+        "🇸🇬 新加坡 IPV6",
+        "🇯🇵 日本 IPV6",
+        "🇺🇸 美国 IPV6"
       ],
       "url": "http://www.gstatic.com/generate_204",
       "interval": "10m",
@@ -283,7 +417,66 @@
       "tag": "GLOBAL",
       "type": "selector",
       "outbounds": [
-        "Proxy"
+        "剩余流量：241.36 GB",
+        "距离下次重置剩余：30 天",
+        "套餐到期：2025-01-31",
+        "🏘️ 官网：hongxingdl.club",
+        "🔗 节点异常请刷新订阅",
+        "🙂刷新失败请到官网重新导入(需重登账号)",
+        "🇭🇰 香港1",
+        "🇭🇰 香港2",
+        "🇭🇰 香港3",
+        "🇭🇰 香港4",
+        "🇭🇰 香港5-原生",
+        "🇹🇼 🇨🇳 台湾1",
+        "🇹🇼 🇨🇳 台湾2",
+        "🇹🇼 🇨🇳 台湾3",
+        "🇸🇬 新加坡1",
+        "🇸🇬 新加坡2",
+        "🇸🇬 新加坡3",
+        "🇸🇬 新加坡4",
+        "🇯🇵 日本1",
+        "🇯🇵 日本2",
+        "🇯🇵 日本3-原生",
+        "🇯🇵 日本4-原生",
+        "🇺🇸 美国1-原生",
+        "🇺🇸 美国2-原生",
+        "🇺🇸 美国3-原生",
+        "🇲🇴 澳门",
+        "🇰🇷 韩国",
+        "🇮🇳 印度-孟买",
+        "🇩🇪 德国",
+        "🇫🇷 法国",
+        "🇬🇧 英国",
+        "🇳🇱 荷兰",
+        "🇮🇹 意大利",
+        "🇮🇳 印度-西部",
+        "🇨🇱 智利",
+        "🇧🇷 巴西",
+        "🇪🇸 西班牙",
+        "🇨🇭 瑞士",
+        "🇸🇪 瑞典",
+        "🇲🇽 墨西哥",
+        "🇨🇦 加拿大",
+        "🇦🇺 澳大利亚",
+        "🇦🇪 迪拜",
+        "🇿🇦 南非",
+        "🇸🇦 沙特阿拉伯",
+        "🇨🇴 哥伦比亚",
+        "🇮🇱 以色列",
+        "🇻🇳 越南",
+        "🇹🇭 泰国",
+        "🇲🇾 马来西亚",
+        "🇷🇺 莫斯科",
+        "🇵🇭 菲律宾",
+        "🇳🇬 尼日利亚",
+        "🇮🇳 🇮🇩 印度尼西亚",
+        "🇹🇷 土耳其",
+        "🇭🇰 香港 IPV6",
+        "🇹🇼 🇨🇳 台湾 IPV6",
+        "🇸🇬 新加坡 IPV6",
+        "🇯🇵 日本 IPV6",
+        "🇺🇸 美国 IPV6"
       ]
     },
     {
@@ -293,6 +486,726 @@
     {
       "tag": "dns-out",
       "type": "dns"
+    },
+    {
+      "tag": "剩余流量：241.36 GB",
+      "type": "trojan",
+      "server": "wb.kaiqsz.com",
+      "server_port": 47119,
+      "password": "948af608-6515-4a53-9a14-ecf196f6f71e",
+      "tls": {
+        "enabled": true,
+        "insecure": true,
+        "server_name": "mm1.redapricotcloud.com"
+      }
+    },
+    {
+      "tag": "距离下次重置剩余：30 天",
+      "type": "trojan",
+      "server": "wb.kaiqsz.com",
+      "server_port": 47119,
+      "password": "948af608-6515-4a53-9a14-ecf196f6f71e",
+      "tls": {
+        "enabled": true,
+        "insecure": true,
+        "server_name": "mm1.redapricotcloud.com"
+      }
+    },
+    {
+      "tag": "套餐到期：2025-01-31",
+      "type": "trojan",
+      "server": "wb.kaiqsz.com",
+      "server_port": 47119,
+      "password": "948af608-6515-4a53-9a14-ecf196f6f71e",
+      "tls": {
+        "enabled": true,
+        "insecure": true,
+        "server_name": "mm1.redapricotcloud.com"
+      }
+    },
+    {
+      "tag": "🏘️ 官网：hongxingdl.club",
+      "type": "trojan",
+      "server": "wb.kaiqsz.com",
+      "server_port": 47119,
+      "password": "948af608-6515-4a53-9a14-ecf196f6f71e",
+      "tls": {
+        "enabled": true,
+        "insecure": true,
+        "server_name": "mm1.redapricotcloud.com"
+      }
+    },
+    {
+      "tag": "🔗 节点异常请刷新订阅",
+      "type": "trojan",
+      "server": "wb.kaiqsz.com",
+      "server_port": 47119,
+      "password": "948af608-6515-4a53-9a14-ecf196f6f71e",
+      "tls": {
+        "enabled": true,
+        "insecure": true,
+        "server_name": "mm1.redapricotcloud.com"
+      }
+    },
+    {
+      "tag": "🙂刷新失败请到官网重新导入(需重登账号)",
+      "type": "trojan",
+      "server": "wb.kaiqsz.com",
+      "server_port": 47119,
+      "password": "948af608-6515-4a53-9a14-ecf196f6f71e",
+      "tls": {
+        "enabled": true,
+        "insecure": true,
+        "server_name": "mm1.redapricotcloud.com"
+      }
+    },
+    {
+      "tag": "🇭🇰 香港1",
+      "type": "trojan",
+      "server": "wb.kaiqsz.com",
+      "server_port": 47119,
+      "password": "948af608-6515-4a53-9a14-ecf196f6f71e",
+      "tls": {
+        "enabled": true,
+        "insecure": true,
+        "server_name": "mm1.redapricotcloud.com"
+      }
+    },
+    {
+      "tag": "🇭🇰 香港2",
+      "type": "trojan",
+      "server": "wb.kaiqsz.com",
+      "server_port": 47119,
+      "password": "948af608-6515-4a53-9a14-ecf196f6f71e",
+      "tls": {
+        "enabled": true,
+        "insecure": true,
+        "server_name": "mm1.redapricotcloud.com"
+      }
+    },
+    {
+      "tag": "🇭🇰 香港3",
+      "type": "trojan",
+      "server": "wb.kaiqsz.com",
+      "server_port": 47119,
+      "password": "948af608-6515-4a53-9a14-ecf196f6f71e",
+      "tls": {
+        "enabled": true,
+        "insecure": true,
+        "server_name": "mm1.redapricotcloud.com"
+      }
+    },
+    {
+      "tag": "🇭🇰 香港4",
+      "type": "trojan",
+      "server": "wb.kaiqsz.com",
+      "server_port": 47119,
+      "password": "948af608-6515-4a53-9a14-ecf196f6f71e",
+      "tls": {
+        "enabled": true,
+        "insecure": true,
+        "server_name": "mm1.redapricotcloud.com"
+      }
+    },
+    {
+      "tag": "🇭🇰 香港5-原生",
+      "type": "trojan",
+      "server": "lm.kaiqsz.com",
+      "server_port": 11735,
+      "password": "948af608-6515-4a53-9a14-ecf196f6f71e",
+      "tls": {
+        "enabled": true,
+        "insecure": true,
+        "server_name": "yg01.redapricotcloud.com"
+      }
+    },
+    {
+      "tag": "🇹🇼 🇨🇳 台湾1",
+      "type": "trojan",
+      "server": "wb.kaiqsz.com",
+      "server_port": 18147,
+      "password": "948af608-6515-4a53-9a14-ecf196f6f71e",
+      "tls": {
+        "enabled": true,
+        "insecure": true,
+        "server_name": "mm2.redapricotcloud.com"
+      }
+    },
+    {
+      "tag": "🇹🇼 🇨🇳 台湾2",
+      "type": "trojan",
+      "server": "wb.kaiqsz.com",
+      "server_port": 18147,
+      "password": "948af608-6515-4a53-9a14-ecf196f6f71e",
+      "tls": {
+        "enabled": true,
+        "insecure": true,
+        "server_name": "mm2.redapricotcloud.com"
+      }
+    },
+    {
+      "tag": "🇹🇼 🇨🇳 台湾3",
+      "type": "trojan",
+      "server": "wb.kaiqsz.com",
+      "server_port": 18147,
+      "password": "948af608-6515-4a53-9a14-ecf196f6f71e",
+      "tls": {
+        "enabled": true,
+        "insecure": true,
+        "server_name": "mm2.redapricotcloud.com"
+      }
+    },
+    {
+      "tag": "🇸🇬 新加坡1",
+      "type": "trojan",
+      "server": "wb.kaiqsz.com",
+      "server_port": 55357,
+      "password": "948af608-6515-4a53-9a14-ecf196f6f71e",
+      "tls": {
+        "enabled": true,
+        "insecure": true,
+        "server_name": "mmbiz1.redapricotcloud.com"
+      }
+    },
+    {
+      "tag": "🇸🇬 新加坡2",
+      "type": "trojan",
+      "server": "wb.kaiqsz.com",
+      "server_port": 55357,
+      "password": "948af608-6515-4a53-9a14-ecf196f6f71e",
+      "tls": {
+        "enabled": true,
+        "insecure": true,
+        "server_name": "mmbiz1.redapricotcloud.com"
+      }
+    },
+    {
+      "tag": "🇸🇬 新加坡3",
+      "type": "trojan",
+      "server": "wb.kaiqsz.com",
+      "server_port": 55357,
+      "password": "948af608-6515-4a53-9a14-ecf196f6f71e",
+      "tls": {
+        "enabled": true,
+        "insecure": true,
+        "server_name": "mmbiz1.redapricotcloud.com"
+      }
+    },
+    {
+      "tag": "🇸🇬 新加坡4",
+      "type": "trojan",
+      "server": "lm.kaiqsz.com",
+      "server_port": 17871,
+      "password": "948af608-6515-4a53-9a14-ecf196f6f71e",
+      "tls": {
+        "enabled": true,
+        "insecure": true,
+        "server_name": "mmbiz1.redapricotcloud.com"
+      }
+    },
+    {
+      "tag": "🇯🇵 日本1",
+      "type": "trojan",
+      "server": "wb.kaiqsz.com",
+      "server_port": 28721,
+      "password": "948af608-6515-4a53-9a14-ecf196f6f71e",
+      "tls": {
+        "enabled": true,
+        "insecure": true,
+        "server_name": "mmbiz1.redapricotcloud.com"
+      }
+    },
+    {
+      "tag": "🇯🇵 日本2",
+      "type": "trojan",
+      "server": "wb.kaiqsz.com",
+      "server_port": 28721,
+      "password": "948af608-6515-4a53-9a14-ecf196f6f71e",
+      "tls": {
+        "enabled": true,
+        "insecure": true,
+        "server_name": "mmbiz1.redapricotcloud.com"
+      }
+    },
+    {
+      "tag": "🇯🇵 日本3-原生",
+      "type": "trojan",
+      "server": "lm.kaiqsz.com",
+      "server_port": 57468,
+      "password": "948af608-6515-4a53-9a14-ecf196f6f71e",
+      "tls": {
+        "enabled": true,
+        "insecure": true,
+        "server_name": "yg01.redapricotcloud.com"
+      }
+    },
+    {
+      "tag": "🇯🇵 日本4-原生",
+      "type": "trojan",
+      "server": "lm.kaiqsz.com",
+      "server_port": 57468,
+      "password": "948af608-6515-4a53-9a14-ecf196f6f71e",
+      "tls": {
+        "enabled": true,
+        "insecure": true,
+        "server_name": "yg01.redapricotcloud.com"
+      }
+    },
+    {
+      "tag": "🇺🇸 美国1-原生",
+      "type": "trojan",
+      "server": "wb.kaiqsz.com",
+      "server_port": 59861,
+      "password": "948af608-6515-4a53-9a14-ecf196f6f71e",
+      "tls": {
+        "enabled": true,
+        "insecure": true,
+        "server_name": "mmbiz.redapricotcloud.com"
+      }
+    },
+    {
+      "tag": "🇺🇸 美国2-原生",
+      "type": "trojan",
+      "server": "wb.kaiqsz.com",
+      "server_port": 59861,
+      "password": "948af608-6515-4a53-9a14-ecf196f6f71e",
+      "tls": {
+        "enabled": true,
+        "insecure": true,
+        "server_name": "mmbiz.redapricotcloud.com"
+      }
+    },
+    {
+      "tag": "🇺🇸 美国3-原生",
+      "type": "trojan",
+      "server": "wb.kaiqsz.com",
+      "server_port": 59861,
+      "password": "948af608-6515-4a53-9a14-ecf196f6f71e",
+      "tls": {
+        "enabled": true,
+        "insecure": true,
+        "server_name": "mmbiz.redapricotcloud.com"
+      }
+    },
+    {
+      "tag": "🇲🇴 澳门",
+      "type": "trojan",
+      "server": "lm.kaiqsz.com",
+      "server_port": 28953,
+      "password": "948af608-6515-4a53-9a14-ecf196f6f71e",
+      "tls": {
+        "enabled": true,
+        "insecure": true,
+        "server_name": "yg01.redapricotcloud.com"
+      }
+    },
+    {
+      "tag": "🇰🇷 韩国",
+      "type": "trojan",
+      "server": "lm.kaiqsz.com",
+      "server_port": 39593,
+      "password": "948af608-6515-4a53-9a14-ecf196f6f71e",
+      "tls": {
+        "enabled": true,
+        "insecure": true,
+        "server_name": "mmbiz10.redapricotcloud.com"
+      }
+    },
+    {
+      "tag": "🇮🇳 印度-孟买",
+      "type": "trojan",
+      "server": "lm.kaiqsz.com",
+      "server_port": 20780,
+      "password": "948af608-6515-4a53-9a14-ecf196f6f71e",
+      "tls": {
+        "enabled": true,
+        "insecure": true,
+        "server_name": "mmbiz13.redapricotcloud.com"
+      }
+    },
+    {
+      "tag": "🇩🇪 德国",
+      "type": "trojan",
+      "server": "lm.kaiqsz.com",
+      "server_port": 21463,
+      "password": "948af608-6515-4a53-9a14-ecf196f6f71e",
+      "tls": {
+        "enabled": true,
+        "insecure": true,
+        "server_name": "mmbiz12.redapricotcloud.com"
+      }
+    },
+    {
+      "tag": "🇫🇷 法国",
+      "type": "trojan",
+      "server": "lm.kaiqsz.com",
+      "server_port": 52508,
+      "password": "948af608-6515-4a53-9a14-ecf196f6f71e",
+      "tls": {
+        "enabled": true,
+        "insecure": true,
+        "server_name": "mmbiz12.redapricotcloud.com"
+      }
+    },
+    {
+      "tag": "🇬🇧 英国",
+      "type": "trojan",
+      "server": "lm.kaiqsz.com",
+      "server_port": 59358,
+      "password": "948af608-6515-4a53-9a14-ecf196f6f71e",
+      "tls": {
+        "enabled": true,
+        "insecure": true,
+        "server_name": "mmbiz11.redapricotcloud.com"
+      }
+    },
+    {
+      "tag": "🇳🇱 荷兰",
+      "type": "trojan",
+      "server": "lm.kaiqsz.com",
+      "server_port": 23852,
+      "password": "948af608-6515-4a53-9a14-ecf196f6f71e",
+      "tls": {
+        "enabled": true,
+        "insecure": true,
+        "server_name": "mmbiz13.redapricotcloud.com"
+      }
+    },
+    {
+      "tag": "🇮🇹 意大利",
+      "type": "trojan",
+      "server": "lm.kaiqsz.com",
+      "server_port": 35989,
+      "password": "948af608-6515-4a53-9a14-ecf196f6f71e",
+      "tls": {
+        "enabled": true,
+        "insecure": true,
+        "server_name": "mmbiz12.redapricotcloud.com"
+      }
+    },
+    {
+      "tag": "🇮🇳 印度-西部",
+      "type": "trojan",
+      "server": "lm.kaiqsz.com",
+      "server_port": 33243,
+      "password": "948af608-6515-4a53-9a14-ecf196f6f71e",
+      "tls": {
+        "enabled": true,
+        "insecure": true,
+        "server_name": "mmbiz13.redapricotcloud.com"
+      }
+    },
+    {
+      "tag": "🇨🇱 智利",
+      "type": "trojan",
+      "server": "lm.kaiqsz.com",
+      "server_port": 44134,
+      "password": "948af608-6515-4a53-9a14-ecf196f6f71e",
+      "tls": {
+        "enabled": true,
+        "insecure": true,
+        "server_name": "mmbiz10.redapricotcloud.com"
+      }
+    },
+    {
+      "tag": "🇧🇷 巴西",
+      "type": "trojan",
+      "server": "lm.kaiqsz.com",
+      "server_port": 28499,
+      "password": "948af608-6515-4a53-9a14-ecf196f6f71e",
+      "tls": {
+        "enabled": true,
+        "insecure": true,
+        "server_name": "mmbiz10.redapricotcloud.com"
+      }
+    },
+    {
+      "tag": "🇪🇸 西班牙",
+      "type": "trojan",
+      "server": "lm.kaiqsz.com",
+      "server_port": 34249,
+      "password": "948af608-6515-4a53-9a14-ecf196f6f71e",
+      "tls": {
+        "enabled": true,
+        "insecure": true,
+        "server_name": "mmbiz12.redapricotcloud.com"
+      }
+    },
+    {
+      "tag": "🇨🇭 瑞士",
+      "type": "trojan",
+      "server": "lm.kaiqsz.com",
+      "server_port": 50140,
+      "password": "948af608-6515-4a53-9a14-ecf196f6f71e",
+      "tls": {
+        "enabled": true,
+        "insecure": true,
+        "server_name": "mmbiz11.redapricotcloud.com"
+      }
+    },
+    {
+      "tag": "🇸🇪 瑞典",
+      "type": "trojan",
+      "server": "lm.kaiqsz.com",
+      "server_port": 59225,
+      "password": "948af608-6515-4a53-9a14-ecf196f6f71e",
+      "tls": {
+        "enabled": true,
+        "insecure": true,
+        "server_name": "mmbiz12.redapricotcloud.com"
+      }
+    },
+    {
+      "tag": "🇲🇽 墨西哥",
+      "type": "trojan",
+      "server": "lm.kaiqsz.com",
+      "server_port": 14571,
+      "password": "948af608-6515-4a53-9a14-ecf196f6f71e",
+      "tls": {
+        "enabled": true,
+        "insecure": true,
+        "server_name": "mmbiz13.redapricotcloud.com"
+      }
+    },
+    {
+      "tag": "🇨🇦 加拿大",
+      "type": "trojan",
+      "server": "lm.kaiqsz.com",
+      "server_port": 50121,
+      "password": "948af608-6515-4a53-9a14-ecf196f6f71e",
+      "tls": {
+        "enabled": true,
+        "insecure": true,
+        "server_name": "mmbiz13.redapricotcloud.com"
+      }
+    },
+    {
+      "tag": "🇦🇺 澳大利亚",
+      "type": "trojan",
+      "server": "lm.kaiqsz.com",
+      "server_port": 58757,
+      "password": "948af608-6515-4a53-9a14-ecf196f6f71e",
+      "tls": {
+        "enabled": true,
+        "insecure": true,
+        "server_name": "mmbiz14.redapricotcloud.com"
+      }
+    },
+    {
+      "tag": "🇦🇪 迪拜",
+      "type": "trojan",
+      "server": "lm.kaiqsz.com",
+      "server_port": 47621,
+      "password": "948af608-6515-4a53-9a14-ecf196f6f71e",
+      "tls": {
+        "enabled": true,
+        "insecure": true,
+        "server_name": "mmbiz10.redapricotcloud.com"
+      }
+    },
+    {
+      "tag": "🇿🇦 南非",
+      "type": "trojan",
+      "server": "lm.kaiqsz.com",
+      "server_port": 53759,
+      "password": "948af608-6515-4a53-9a14-ecf196f6f71e",
+      "tls": {
+        "enabled": true,
+        "insecure": true,
+        "server_name": "mmbiz11.redapricotcloud.com"
+      }
+    },
+    {
+      "tag": "🇸🇦 沙特阿拉伯",
+      "type": "trojan",
+      "server": "lm.kaiqsz.com",
+      "server_port": 56072,
+      "password": "948af608-6515-4a53-9a14-ecf196f6f71e",
+      "tls": {
+        "enabled": true,
+        "insecure": true,
+        "server_name": "mmbiz11.redapricotcloud.com"
+      }
+    },
+    {
+      "tag": "🇨🇴 哥伦比亚",
+      "type": "trojan",
+      "server": "lm.kaiqsz.com",
+      "server_port": 25118,
+      "password": "948af608-6515-4a53-9a14-ecf196f6f71e",
+      "tls": {
+        "enabled": true,
+        "insecure": true,
+        "server_name": "mmbiz10.redapricotcloud.com"
+      }
+    },
+    {
+      "tag": "🇮🇱 以色列",
+      "type": "trojan",
+      "server": "lm.kaiqsz.com",
+      "server_port": 44650,
+      "password": "948af608-6515-4a53-9a14-ecf196f6f71e",
+      "tls": {
+        "enabled": true,
+        "insecure": true,
+        "server_name": "mmbiz11.redapricotcloud.com"
+      }
+    },
+    {
+      "tag": "🇻🇳 越南",
+      "type": "trojan",
+      "server": "lm.kaiqsz.com",
+      "server_port": 11306,
+      "password": "948af608-6515-4a53-9a14-ecf196f6f71e",
+      "tls": {
+        "enabled": true,
+        "insecure": true,
+        "server_name": "mmbiz14.redapricotcloud.com"
+      }
+    },
+    {
+      "tag": "🇹🇭 泰国",
+      "type": "trojan",
+      "server": "lm.kaiqsz.com",
+      "server_port": 43855,
+      "password": "948af608-6515-4a53-9a14-ecf196f6f71e",
+      "tls": {
+        "enabled": true,
+        "insecure": true,
+        "server_name": "mmbiz14.redapricotcloud.com"
+      }
+    },
+    {
+      "tag": "🇲🇾 马来西亚",
+      "type": "trojan",
+      "server": "lm.kaiqsz.com",
+      "server_port": 30383,
+      "password": "948af608-6515-4a53-9a14-ecf196f6f71e",
+      "tls": {
+        "enabled": true,
+        "insecure": true,
+        "server_name": "mmbiz14.redapricotcloud.com"
+      }
+    },
+    {
+      "tag": "🇷🇺 莫斯科",
+      "type": "trojan",
+      "server": "lm.kaiqsz.com",
+      "server_port": 16783,
+      "password": "948af608-6515-4a53-9a14-ecf196f6f71e",
+      "tls": {
+        "enabled": true,
+        "insecure": true,
+        "server_name": "mmbiz15.redapricotcloud.com"
+      }
+    },
+    {
+      "tag": "🇵🇭 菲律宾",
+      "type": "trojan",
+      "server": "lm.kaiqsz.com",
+      "server_port": 58947,
+      "password": "948af608-6515-4a53-9a14-ecf196f6f71e",
+      "tls": {
+        "enabled": true,
+        "insecure": true,
+        "server_name": "mmbiz15.redapricotcloud.com"
+      }
+    },
+    {
+      "tag": "🇳🇬 尼日利亚",
+      "type": "trojan",
+      "server": "lm.kaiqsz.com",
+      "server_port": 34183,
+      "password": "948af608-6515-4a53-9a14-ecf196f6f71e",
+      "tls": {
+        "enabled": true,
+        "insecure": true,
+        "server_name": "mmbiz16.redapricotcloud.com"
+      }
+    },
+    {
+      "tag": "🇮🇳 🇮🇩 印度尼西亚",
+      "type": "trojan",
+      "server": "lm.kaiqsz.com",
+      "server_port": 27056,
+      "password": "948af608-6515-4a53-9a14-ecf196f6f71e",
+      "tls": {
+        "enabled": true,
+        "insecure": true,
+        "server_name": "mmbiz16.redapricotcloud.com"
+      }
+    },
+    {
+      "tag": "🇹🇷 土耳其",
+      "type": "trojan",
+      "server": "lm.kaiqsz.com",
+      "server_port": 49596,
+      "password": "948af608-6515-4a53-9a14-ecf196f6f71e",
+      "tls": {
+        "enabled": true,
+        "insecure": true,
+        "server_name": "mmbiz16.redapricotcloud.com"
+      }
+    },
+    {
+      "tag": "🇭🇰 香港 IPV6",
+      "type": "trojan",
+      "server": "ipv6.hongxingdl.vip",
+      "server_port": 47119,
+      "password": "948af608-6515-4a53-9a14-ecf196f6f71e",
+      "tls": {
+        "enabled": true,
+        "insecure": true,
+        "server_name": "mm1.redapricotcloud.com"
+      }
+    },
+    {
+      "tag": "🇹🇼 🇨🇳 台湾 IPV6",
+      "type": "trojan",
+      "server": "ipv6.hongxingdl.vip",
+      "server_port": 18147,
+      "password": "948af608-6515-4a53-9a14-ecf196f6f71e",
+      "tls": {
+        "enabled": true,
+        "insecure": true,
+        "server_name": "mm2.redapricotcloud.com"
+      }
+    },
+    {
+      "tag": "🇸🇬 新加坡 IPV6",
+      "type": "trojan",
+      "server": "ipv6.hongxingdl.vip",
+      "server_port": 55357,
+      "password": "948af608-6515-4a53-9a14-ecf196f6f71e",
+      "tls": {
+        "enabled": true,
+        "insecure": true,
+        "server_name": "mmbiz1.redapricotcloud.com"
+      }
+    },
+    {
+      "tag": "🇯🇵 日本 IPV6",
+      "type": "trojan",
+      "server": "ipv6.hongxingdl.vip",
+      "server_port": 28721,
+      "password": "948af608-6515-4a53-9a14-ecf196f6f71e",
+      "tls": {
+        "enabled": true,
+        "insecure": true,
+        "server_name": "mmbiz1.redapricotcloud.com"
+      }
+    },
+    {
+      "tag": "🇺🇸 美国 IPV6",
+      "type": "trojan",
+      "server": "ipv6.hongxingdl.vip",
+      "server_port": 59861,
+      "password": "948af608-6515-4a53-9a14-ecf196f6f71e",
+      "tls": {
+        "enabled": true,
+        "insecure": true,
+        "server_name": "mmbiz.redapricotcloud.com"
+      }
     }
   ],
   "route": {
