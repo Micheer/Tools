@@ -151,7 +151,7 @@ dns:
   #     - "https://dns.cloudflare.com/dns-query"
   #     - "https://dns.google/dns-query"
 
-proxies:
+  # proxies:
   # - name: "xui-jp-vps"
   #   type: vless
   #   server: juhost.cuba-ai.com
