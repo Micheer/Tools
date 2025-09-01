@@ -1,4 +1,3 @@
-
 {
   "dns": {
     "servers": [
@@ -34,29 +33,32 @@
     {"tag": "🐸 手动切换", "type": "selector", "outbounds": []},
     {"tag": "🇭🇰 香港节点", "type": "selector", "outbounds": []},
     {"tag": "🇯🇵 日本节点", "type": "selector", "outbounds": []},
+
+    {"tag": "🇯🇵 日本自建", "type": "selector", "outbounds": []},
     {"tag": "🇺🇲 美国节点", "type": "selector", "outbounds": []},
     {"tag": "🔯 香港自动", "type": "urltest", "outbounds": []},
     {"tag": "♻️ 自动选择", "type": "urltest", "outbounds": []},
-    {"tag": "全球代理", "type": "selector", "outbounds": ["🚀 节点选择", "🎯 国内直连", "🇭🇰 香港节点", "🇯🇵 日本节点", "🇺🇲 美国节点", "🐸 手动切换"] },
+    {"tag": "全球代理", "type": "selector", "outbounds": ["🚀 节点选择", "🎯 国内直连", "🇭🇰 香港节点", "🇯🇵 日本节点", "🇺🇲 美国节点", "🐸 手动切换", "🇯🇵 日本自建"] },
     {"tag": "🎯 国内直连", "type": "direct" }
   ],
   "route": {
     "rules": [
       {"action": "sniff", "sniffer": ["http", "tls", "quic", "dns"]},
       {"type": "logical", "mode": "or", "rules": [{"port": 53}, {"protocol": "dns"}], "action": "hijack-dns"},
-      { "clash_mode": "direct", "outbound": "🎯 国内直连" },
-      { "clash_mode": "global", "outbound": "全球代理" },
-      { "ip_is_private": true, "outbound": "🎯 国内直连" },
-      { "rule_set": "geosite-openai", "outbound": "🤖 OpenAI" },
-      { "rule_set": "geosite-youtube", "outbound": "📹 YouTube" },
-      { "rule_set": ["geoip-google", "geosite-google"], "outbound": "🍀 Google" },
-      { "rule_set": ["geoip-telegram", "geosite-telegram"], "outbound": "📲 Telegram" },
-      { "rule_set": "geosite-tiktok", "outbound": "🎵 TikTok" },
-      { "rule_set": ["geoip-netflix", "geosite-netflix"], "outbound": "🎥 Netflix" },
-      { "rule_set": ["geoip-apple", "geosite-apple"], "outbound": "🍎 Apple" },
-      { "rule_set": "geosite-microsoft", "outbound": "🪟 Microsoft" },      
-      { "rule_set": "geosite-geolocation-!cn", "outbound": "🚀 节点选择" },
-      { "rule_set": ["geoip-cn", "geosite-cn"], "outbound": "🎯 国内直连" }
+      {"clash_mode": "direct", "outbound": "🎯 国内直连" },
+      {"rule_set": "plist", "outbound": "🇯🇵 日本自建"},
+      {"clash_mode": "global", "outbound": "全球代理" },
+      {"ip_is_private": true, "outbound": "🎯 国内直连" },
+      {"rule_set": "geosite-openai", "outbound": "🤖 OpenAI" },
+      {"rule_set": "geosite-youtube", "outbound": "📹 YouTube" },
+      {"rule_set": ["geoip-google", "geosite-google"], "outbound": "🍀 Google" },
+      {"rule_set": ["geoip-telegram", "geosite-telegram"], "outbound": "📲 Telegram" },
+      {"rule_set": "geosite-tiktok", "outbound": "🎵 TikTok" },
+      {"rule_set": ["geoip-netflix", "geosite-netflix"], "outbound": "🎥 Netflix" },
+      {"rule_set": ["geoip-apple", "geosite-apple"], "outbound": "🍎 Apple" },
+      {"rule_set": "geosite-microsoft", "outbound": "🪟 Microsoft" },      
+      {"rule_set": "geosite-geolocation-!cn", "outbound": "🚀 节点选择" },
+      {"rule_set": ["geoip-cn", "geosite-cn"], "outbound": "🎯 国内直连" }
     ],
     "rule_set": [
       { "tag": "geosite-openai", "type": "remote", "format": "binary", "url": "https://gh-proxy.com/https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/sing/geo/geosite/category-ai-!cn.srs", "download_detour": "🎯 国内直连" },
@@ -76,7 +78,9 @@
       { "tag": "geoip-cn", "type": "remote", "format": "binary", "url": "https://gh-proxy.com/https://github.com/qljsyph/ruleset-icon/raw/refs/heads/main/sing-box/geoip/China-ASN-combined-ip.srs", "download_detour": "🎯 国内直连" },
       { "tag": "geosite-cn", "type": "remote", "format": "binary", "url": "https://gh-proxy.com/https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/sing/geo/geosite/cn.srs", "download_detour": "🎯 国内直连" },
       {"tag": "geosite-steamcn", "type": "remote", "format": "binary", "url": "https://gh-proxy.com/https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/sing/geo/geosite/steam@cn.srs", "download_detour": "🎯 国内直连"},
-      {"tag": "geosite-steam", "type": "remote", "format": "binary", "url": "https://gh-proxy.com/https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/sing/geo/geosite/steam.srs", "download_detour": "🎯 国内直连"}
+
+      {"tag": "geosite-steam", "type": "remote", "format": "binary", "url": "https://gh-proxy.com/https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/sing/geo/geosite/steam.srs", "download_detour": "🎯 国内直连"},
+      {"tag": "plist", "type": "remote", "format": "source", "url": "https://raw.githubusercontent.com/Micheer/Tools/refs/heads/main/proxy.list", "download_detour": "🔯 香港自动"}
     ],
     "final": "🐠 漏网之鱼",
     "auto_detect_interface": true,
