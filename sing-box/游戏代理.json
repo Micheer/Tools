@@ -1042,9 +1042,9 @@
       {
         "tag": "plist",
         "type": "remote",
-        "format": "binary",
-        "url": "https://github.com/Micheer/Tools/blob/main/proxy.list",
-        "download_detour": "🎯 国内直连"
+        "format": "source",
+        "url": "https://raw.githubusercontent.com/Micheer/Tools/refs/heads/main/proxy.list",
+        "download_detour": "全球代理"
       }
     ],
     "final": "🐠 漏网之鱼",
