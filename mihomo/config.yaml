@@ -5,27 +5,33 @@ pr: &pr {type: http, interval: 3600, health-check: {enable: true, url: https://w
 # url 里填写自己的机场订阅，名称不能重复
 proxy-providers:
    # ikuuu
-  provider1:
-    <<: *pr
-    url: ""
-    override:
-      additional-prefix: "润机场"
+  # provider1:
+  #   <<: *pr
+  #   url: ""
+  #   override:
+  #     additional-prefix: "润机场"
 
    # 机场2
   provider2:
     <<: *pr
-    url: "http://127.0.0.1:38324/download/ikuuu?target=ClashMeta"
-    override:
-      additional-prefix: "ikuuu" 
-      
+    url: "https://7944e.no-mad-world.club/link/2fLTzpqQDbEixnL6?clash=3&extend=1"
+    proxy: 直连
+
+    # override:
+    #   additional-prefix: "ikuuu" 
+
+
+# 全局配置
 # 开启 ip 总开关 true/false
 ipv6: true
 # 允许局域网的连接（可用来共享加速）
 allow-lan: true
 # 混合端口 HTTP 和 SOCKS5 用一个端口
-mixed-port: 7890
+port: 7890
+socks-port: 7891
+mixed-port: 7892
 # Tproxy 端口
-tproxy-port: 7891
+# tproxy-port: 7891
 # 更换延迟计算方式,去除握手等额外延迟
 unified-delay: true
 # TCP 并发连接所有 IP, 将使用最快握手的 TCP
@@ -37,7 +43,7 @@ tcp-concurrent: true
 # external-ui-name: zashboard
 # secret: ""
 # # UI 地址
-# external-controller: -1.0.0.0:9090
+# external-controller: 0.0.0.0:9090
 # # 自定义 UI 下载地址
 # external-ui-url: "https://github.com/Zephyruso/zashboard/archive/refs/heads/gh-pages.zip"
 
@@ -128,43 +134,53 @@ dns:
     - "+.ntp1.aliyun.com"
     - "+.ntp.ntsc.ac.cn"
     - "+.cn.ntp.org.cn"
+  # 默认 DNS, 用于解析 DNS 服务器 的域名
   default-nameserver:
     - 223.5.5.5
+  # 指定域名查询的解析服务器
+  nameserver-policy:
+    '+.arpa': '10.0.0.1'
+    'rule-set:cn':
+    - https://doh.pub/dns-query
+    - https://dns.alidns.com/dns-query
+  
+  # 后备域名解析服务器，一般情况下使用境外 DNS
+  fallback:
+    - tls://8.8.4.4
+    - tls://1.1.1.1
+  
+  #  用于 direct 出口域名解析的 DNS 服务器
+  direct-nameserver:
+    - 223.5.5.5
+    - 119.29.29.29
 
+  # 代理节点域名解析服务器，仅用于解析代理节点的域名，如果不填则遵循 nameserver-policy
   proxy-server-nameserver:
     # - https://223.5.5.5/dns-query
     # - https://120.53.53.53/dns-query
     - https://120.53.53.53/dns-query
     - https://223.5.5.5/dns-query
+
+  # 默认的域名解析服务器
   nameserver:
-    # - https://223.5.5.5/dns-query
-    # - https://120.53.53.53/dns-query
-    - 223.5.5.5
-    - 119.29.29.29
+    - https://223.5.5.5/dns-query
+    - https://120.53.53.53/dns-query
 
-  # 使用错误
-  # nameserver-policy:
-  #   "rule-set:private_domain,China":
-  #     - 223.5.5.5
-  #     - 119.29.29.29
-  #   "rule-set:geolocation-!cn":
-  #     - "https://dns.cloudflare.com/dns-query"
-  #     - "https://dns.google/dns-query"
+  # 后备域名解析服务器筛选，满足条件的将使用 fallback结果或只使用 fallback解析
+  fallback-filter:
+    geoip: true
+    geoip-code: CN
+    geosite:
+      - gfw
+    ipcidr:
+      - 240.0.0.0/4
+    domain:
+      - '+.google.com'
+      - '+.facebook.com'
+      - '+.youtube.com'
 
-  # proxies:
-  # - name: "xui-jp-vps"
-  #   type: vless
-  #   server: juhost.cuba-ai.com
-  #   port: 2083
-  #   uuid: 88e50e9b-bb65-43a3-80c6-444dfbbe1498
-  #   network: ws
-  #   tls: true
-  #   servername: juhost.cuba-ai.com
-  #   client-fingerprint: chrome
-  #   ws-opts:
-  #     path: "/4033957a"
-  # dialer-proxy: "全球直连"
 
+proxies:
   # - name: "SS"
   #   type: ss
   #   server: "191.96.29.38"
@@ -172,7 +188,7 @@ dns:
   #   cipher: 2022-blake3-aes-128-gcm
   #   password: "jRTAlQLEgAYB4s4jkcSaaQ=="
   #   udp: true
-  #   dialer-proxy: "全球直连"
+  #   dialer-proxy: "全球代理"
 
   # - name: "VLESS-Vision-Reality"
   #   type: vless
@@ -189,8 +205,6 @@ dns:
   #     public-key: "5rbK_xMl7EhR6bouQ-FURPXzSbiSTrjMtcvInM4JNEc"
   #     short-id: "540c56c4bb2bd1e4"
   #   skip-cert-verify: false
-  #   # dialer-proxy: "全球直连"
-
   
   # - name: "HYSTERIA2"
   #   type: hysteria2
@@ -209,58 +223,82 @@ dns:
 # 单个出站代理节点
   - name: direct
     type: direct
-    udp: true
+    # udp: true
 
 # 策略组相关
-pg: &pg {type: select, proxies: [手动选择, 自动选择, 链式代理]}
+pg: &pg {type: select, proxies: [手动选择, ♻️ 自动选择, 链式代理]}
 # 手动选择策略
-mt: &mt {type: select, include-all: true}
+mt: &mt {include-all: true, proxies: 🇭🇰 香港节点, 🇯🇵 日本节点, 🇺🇲 美国节点, 自建节点, ♻️ 香港自动, ♻️ 日本自动, ♻️ 狮城自动, ♻️ 美国自动, ♻️ 自动选择}
 # 自动优选策略
-at: &at {type: url-test, include-all-providers: true, url: https://www.gstatic.com/generate_204, tolerance: 10, interval: 300}
+at: &at {type: url-test, include-all: true, url: https://www.gstatic.com/generate_204, tolerance: 20, interval: 300}
 # 负载均衡策略
 lb: &lb {type: load-balance, include-all: true, interval: 300, url: https://www.gstatic.com/generate_204}
 
 # 策略组
 proxy-groups:
   # 策略分组
-  - {name: 手动选择, type: select, proxies: [全球直连, 自动选择, GlobalGFW, China, 链式代理]}
+  - {name: 🚀 手动选择, type: select, <<: &mt}
+  - {name: 📹 YouTube, type: select, <<: &mt}
+  - {name: 🍀 Google, type: select, <<: &mt}
+  - {name: 🤖 ChatGPT, type: select, <<: &mt}
+  - {name: 👨🏿‍💻 GitHub, type: select, <<: &mt}
+  - {name: 🐬 OneDrive, type: select, <<: &mt}
+  - {name: 🪟 Microsoft, type: select, <<: &mt}
+  - {name: 🎵 TikTok, type: select, <<: &mt}
+  - {name: 💶 PayPal, type: select, <<: &mt}
+  - {name: 📲 Telegram, type: select, <<: &mt}
+  - {name: 漏网之鱼, type: select, <<: *mt}
+  - {name: 游戏代理, type: select, include-all: true, proxies: 自建节点}
+  - {name: 🇭🇰 香港节点, type: select, include-all: true, filter: "(?i)港|hk|hongkong|hong kong"}
+  - {name: 🇯🇵 日本节点, type: select, include-all: true, filter: "(?i)日|jp|japan"}
+  - {name: 🇺🇲 美国节点, type: select, include-all: true, filter: "(?i)美|us|unitedstates|united states"}
+  - {name: 自建节点, type: select, include-all: true, filter: "(?i)日|jp|japan|自建|SS"}
+  - {name: 🔯 香港故转, type: fallback, include-all: true, tolerance: 20, interval: 300, filter: "(?=.*(港|HK|(?i)Hong))^((?!(台|日|韩|新|深|美)).)*$"}
+  - {name: 🔯 日本故转, type: fallback, include-all: true, tolerance: 20, interval: 300, filter: "(?=.*(日|JP|(?i)Japan))^((?!(港|台|韩|新|美)).)*$" }
+  - {name: 🔯 狮城故转, type: fallback, include-all: true, tolerance: 20, interval: 300, filter: "(?=.*(新加坡|坡|狮城|SG|Singapore))^((?!(台|日|韩|深|美)).)*$"}
+  - {name: 🔯 美国故转, type: fallback, include-all: true, tolerance: 20, interval: 300, filter: "(?=.*(美|US|(?i)States|America))^((?!(港|台|韩|新|日)).)*$" }
+  - {name: ♻️ 香港自动, type: url-test, include-all: true, tolerance: 20, interval: 300, filter: "(?=.*(港|HK|(?i)Hong))^((?!(台|日|韩|新|深|美)).)*$"}
+  - {name: ♻️ 日本自动, type: url-test, include-all: true, tolerance: 20, interval: 300, filter: "(?=.*(日|JP|(?i)Japan))^((?!(港|台|韩|新|美)).)*$" }
+  - {name: ♻️ 狮城自动, type: url-test, include-all: true, tolerance: 20, interval: 300, filter: "(?=.*(新加坡|坡|狮城|SG|Singapore))^((?!(港|台|韩|日|美)).)*$" }
+  - {name: ♻️ 美国自动, type: url-test, include-all: true, tolerance: 20, interval: 300, filter: "(?=.*(美|US|(?i)States|America))^((?!(港|台|日|韩|新)).)*$"}
+  - {name:  🔯 中转节点, type: url-test, <<: *at, filter: "(?=.*(港|HK|(?i)Hong))^((?!(台|日|韩|新|深|美)).)*$"}
+  - {name: ♻️ 自动选择, type: url-test, filter: "^((?!(直连|direct)).)*$"}
+  - {name: 全球代理, type: select, include-all: true}
 
-  - {name: 全球直连, type: select, use: [provider1,provider2]}
-
-  - {name: 链式代理, <<: *mt, proxies: [自动选择, China]}
-
-  - {name: GlobalGFW, <<: *mt, use: [provider1,provider2]}
   
-  - {name: China, <<: *mt, use: [provider1,provider2]}
 
-  - {name: 漏网之鱼, <<: *mt, use: [provider1,provider2]}
+  # - {name: GlobalGFW, <<: *mt, use: [provider1,provider2]}
+  
+  # - {name: China, <<: *mt, use: [provider1,provider2]}
 
-  - {name: 自动选择, <<: *at, use: [provider1,provider2]}
+
 
 # 分流策略
 rules:
   - RULE-SET,private_domain,direct
   - RULE-SET,Adrules,REJECT
-  - RULE-SET,YouTube,手动选择
-  - RULE-SET,Google,手动选择
-  - RULE-SET,GitHub,手动选择
-  - RULE-SET,Microsoft,手动选择
-  - RULE-SET,Telegram,手动选择
-  - RULE-SET,OpenAI,手动选择
-  - RULE-SET,Twitter,手动选择
-  - RULE-SET,Facebook,手动选择
-  - RULE-SET,TikTok,手动选择
+  - RULE-SET,proxylite,游戏代理
+  - RULE-SET,YouTube,📹 YouTube
+  - RULE-SET,ai,🤖 ChatGPT
+  - RULE-SET,Google,🍀 Google
+  - RULE-SET,GitHub,👨🏿‍💻 GitHub
+  - RULE-SET,Microsoft,🪟 Microsoft
+  - RULE-SET,Telegram,📲 Telegram
+  - RULE-SET,OpenAI,🤖 ChatGPT
+  # 要修改
+  - RULE-SET,Twitter,🍀 Google
+  - RULE-SET,Facebook,🍀 Google
+  - RULE-SET,TikTok,🎵 TikTok
   # - RULE-SET,GlobalMedia,手动选择
-  - RULE-SET,GlobalGFW,手动选择
-  - RULE-SET,Apple,手动选择
-  - RULE-SET,Bilibili,China
+  - RULE-SET,Apple,direct
+  - RULE-SET,Bilibili,direct
   # - RULE-SET,WeChat,China
-  - RULE-SET,China,China
-  - RULE-SET,geolocation-!cn,手动选择
-  - RULE-SET,cn_ip,China
-  - RULE-SET,google_ip,全球直连,no-resolve
-  - RULE-SET,Telegram_ip,全球直连,no-resolve
+  - RULE-SET,geolocation-!cn,🚀 手动选择
+  - RULE-SET,google_ip,🍀 Google,no-resolve
+  - RULE-SET,Telegram_ip,📲 Telegram,no-resolve
   # - GEOIP,CN,China
+  - RULE-SET,cn_domain,direct
+  - RULE-SET,China,direct
   - MATCH,漏网之鱼
 
 # 规则集锚点
@@ -274,78 +312,39 @@ rule-anchor:
 # 订阅规则集
 rule-providers:
   # 广告拦截
-  Adrules:
-    <<: *classical
-    url: "https://adrules.top/adrules.list"
-  
-  private_domain:
-    <<: *domain
-    url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/private.mrs"
-
+  Adrules: {<<: *classical, url: "https://adrules.top/adrules.list"} 
+  private_domain: {<<: *domain, url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/private.mrs"}
+  proxylite: { <<: *classical, url: "https://raw.githubusercontent.com/Micheer/Tools/refs/heads/main/proxy.list"}
+  ai: {<<: *domain, url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/category-ai-!cn.mrs" }
   # 谷歌服务
-  YouTube:
-    <<: *domain
-    url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/youtube.mrs"
-  Google:
-    <<: *domain
-    url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/google.mrs"
+  YouTube: {<<: *domain, url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/youtube.mrs"}
+  Google: {<<: *domain, url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/google.mrs"}
   # 微软服务
-  GitHub:
-    <<: *domain
-    url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/github.mrs"
-  Microsoft:
-    <<: *domain
-    url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/microsoft.mrs"
+  GitHub: {<<: *domain, url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/github.mrs"}
+  Microsoft: {<<: *domain, url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/microsoft.mrs"}
   # 电报服务
-  Telegram:
-    <<: *domain
-    url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/telegram.mrs"
+  Telegram: {<<: *domain, url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/telegram.mrs"}
   # ChatGPT
-  OpenAI:
-    <<: *domain
-    url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/openai.mrs"
+  OpenAI: {<<: *domain, url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/openai.mrs"}
   # 推特加速
-  Twitter:
-    <<: *domain
-    url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/twitter.mrs"
+  Twitter: {<<: *domain, url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/twitter.mrs"}
   # 脸书加速
   Facebook:
-    <<: *domain
-    url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/facebook.mrs"
+    {<<: *domain, url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/facebook.mrs"}
   # 海外抖音
-  TikTok:
-    <<: *domain
-    url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/tiktok.mrs"
-
+  TikTok: {<<: *domain, url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/tiktok.mrs"}
   # 海外服务
-  GlobalGFW:
-    <<: *domain
-    url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/gfw.mrs"
+  GlobalGFW: {<<: *domain, url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/gfw.mrs"}
   # 苹果服务
-  Apple:
-    <<: *domain
-    url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/apple.mrs"
+  Apple: {<<: *domain, url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/apple.mrs"}
   # 哔哩哔哩
-  Bilibili:
-    <<: *domain
-    url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/bilibili.mrs"
+  Bilibili: {<<: *domain, url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/bilibili.mrs"}
   # 国内服务
-  China:
-    <<: *domain
-    url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/cn.mrs"
+  China: {<<: *domain, url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/cn.mrs"}
+  geolocation-!cn: {<<: *domain, url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/geolocation-!cn.mrs"}
 
-  geolocation-!cn:
-    <<: *domain
-    url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/geolocation-!cn.mrs"
+  cn_ip: {<<: *ip, url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geoip/cn.mrs"}
+  google_ip: {<<: *ip, url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geoip/google.mrs"}
+  Telegram_ip: {<<: *ip, url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geoip/telegram.mrs"}
+  cn_domain: { <<: *domain, url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geosite/cn.mrs"}
 
-  cn_ip:
-    <<: *ip
-    url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geoip/cn.mrs"
-
-  google_ip:
-    <<: *ip
-    url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geoip/google.mrs"
-
-  Telegram_ip:
-    <<: *ip
-    url: "https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/meta/geo/geoip/telegram.mrs"
