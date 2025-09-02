@@ -1042,8 +1042,8 @@
       {
         "tag": "plist",
         "type": "remote",
-        "format": "source",
-        "url": "https://raw.githubusercontent.com/Micheer/Tools/refs/heads/main/proxy.list",
+        "format": "binary",
+        "url": "https://raw.githubusercontent.com/Micheer/Tools/test/plist.srs",
         "download_detour": "全球代理"
       }
     ],
