@@ -16,12 +16,12 @@
       {"query_type": ["A", "AAAA"], "server": "fakeip", "rewrite_ttl": 1}
     ],
     "final": "foreign",
-    "strategy": "ipv4_only",
+    "strategy": "prefer_ipv4",
     "independent_cache": true,
     "reverse_mapping": true
   },
   "outbounds": [
-    {"tag": "🚀 节点选择", "type": "selector", "outbounds": ["🔯 中转节点", "🇭🇰 香港节点", "🇯🇵 日本节点", "🇺🇲 美国节点", "🐸 手动切换"] },
+    {"tag": "🚀 节点选择", "type": "selector", "outbounds": ["🔯 中转节点", "🇭🇰 香港节点", "🇯🇵 日本节点", "🇺🇲 美国节点", "🐸 手动切换", "自建节点"] },
     {"tag": "📹 YouTube", "type": "selector", "outbounds": ["🔯 中转节点", "🇭🇰 香港节点", "🇯🇵 日本节点", "🇺🇲 美国节点", "🐸 手动切换"] },
     {"tag": "🤖 OpenAI", "type": "selector", "outbounds": ["🔯 中转节点", "🇭🇰 香港节点", "🇯🇵 日本节点", "🇺🇲 美国节点", "🐸 手动切换"] },
     {"tag": "🍀 Google", "type": "selector", "outbounds": ["🔯 中转节点", "🇭🇰 香港节点", "🇯🇵 日本节点", "🇺🇲 美国节点", "🐸 手动切换"] },
@@ -79,7 +79,7 @@
       {"tag": "geosite-cn", "type": "remote", "format": "binary", "url": "https://gh-proxy.com/https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/sing/geo/geosite/cn.srs", "download_detour": "🎯 国内直连" },
       {"tag": "geosite-steamcn", "type": "remote", "format": "binary", "url": "https://gh-proxy.com/https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/sing/geo/geosite/steam@cn.srs", "download_detour": "🎯 国内直连"},
       {"tag": "geosite-steam", "type": "remote", "format": "binary", "url": "https://gh-proxy.com/https://raw.githubusercontent.com/MetaCubeX/meta-rules-dat/sing/geo/geosite/steam.srs", "download_detour": "🎯 国内直连"},
-      {"tag": "plist", "type": "remote", "format": "binary", "url": "https://raw.githubusercontent.com/Micheer/Tools/test/plist.srs", "download_detour": "全球代理"}
+      {"tag": "plist", "type": "remote", "format": "binary", "url": "https://raw.githubusercontent.com/Micheer/Tools/test/plist.srs", "download_detour": "🎯 国内直连"}
 
     ],
     "final": "🐠 漏网之鱼",
@@ -106,12 +106,6 @@
       "listen_port": 1080
     },
     {
-      "tag": "redirect-in",
-      "type": "redirect",
-      "listen": "::",
-      "listen_port": 7890
-    },
-    {
       "tag": "tun-in",
       "type": "tun",
       "interface_name": "momo",
@@ -124,10 +118,14 @@
     }
   ],
   "log": {
-    "level": "info",
-    "timestamp": true
+    "timestamp": true,
+    "level": "debug"
   },
   "experimental": {
+    "cache_file": {
+      "enabled": true,
+      "store_fakeip": true
+    },
     "clash_api": {
       "external_controller": "0.0.0.0:9090",
       "external_ui": "ui",
@@ -136,5 +134,11 @@
       "external_ui_download_detour": "🎯 国内直连",
       "default_mode": "rule"
       }
-    }
+    },
+  "ntp": {
+    "enabled": true,
+    "server": "time.apple.com",
+    "server_port": 123,
+    "interval": "30m"
+  }
 }
